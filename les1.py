@@ -1,5 +1,5 @@
 #коммент
-print("Доброе утро")
+print("Доброе утро, Alina")
 print("privet")
 name = input("Ваше имя: ")
 print(name, ", добро пожаловать в мир пайтон")
