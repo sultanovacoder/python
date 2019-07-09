@@ -24,4 +24,4 @@ if answer == 'Y':
 elif answer == 'N':
     print("До свидания!")
 else:
-    print("Неизвестный выбор")
+    print("Неизвестный выбор!")
