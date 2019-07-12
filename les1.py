@@ -1,4 +1,32 @@
-#коммент
+#классы ООП
+class Dog():
+    """Модель собачки. Гааав!"""
+    
+    def __init__(self,name,age):
+        """инициализируем атрибуты имени и возраста"""
+        self.name = name
+        self.age = age
+        print(self.name.title() + " сказала gav gav gav")
+        print("- на собаку посмотрели, как на дуру")
+        
+    def sit(self):
+        """будет садиться по команде"""
+        print(self.name.title() + "собака села")
+        
+    def jamp(self):
+        """собака будет прыгать по команде"""
+        print(self.name.title() + "собака прыгнула")
+    
+    """def howyear(self):
+        print(self.age.title() + " возраст собаки с кличкой" + self.name.title()) почему это не работает??"""
+        
+my_dog = Dog('Topik', 4)
+my_dog2 = Dog('Nika',7)
+
+"""my_dog.howyear()"""
+my_dog.sit()
+my_dog2.jamp()
+        
 print("Доброе утро, Alina")
 print("не ленись!")
 print("двумя кнопками мыши назать на файл \"file.py\"!")
