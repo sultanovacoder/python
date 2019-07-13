@@ -33,18 +33,33 @@ print("_______данные о собаках_________")
 my_dog.howyear()
 my_dog2.howyear()
 print()
-        
-print("Доброе утро, Alina")
+
+name = 'Alina'        
+print("Доброе утро, %s" % name)
 print("не ленись!")
 print("двумя кнопками мыши нажать на файл \"file.py\"!")
 answer3 = input("А ты в курсе, что можно запускать питоновский файл напрямую и вводить туда значения? (Y/N)")
 if answer3 == 'Y':
-    print("умничка")
+    print(" умничка")
 else:
-    print("нихера не умничка")
-name = input("Ваше имя: ")
+    print("нихера не умничка%n")
 print(name, ", добро пожаловать в мир пайтон")
-answer = input("Давайте поработаем?(Y/N)")
+    
+print("\nРегистрация клиента")
+class Client():
+    def __init__(self,name,soname,otchestvo,date):
+        self.name = name
+        self.soname = soname
+        self.otchestvo = otchestvo
+        self.date = date
+    def getFio(self):
+        """собираем фамилию имя отчество"""
+        print(self.soname.title()+ " " + self.name.title() + " " + self.otchestvo.title())
+
+client1 = Client('marina','sultanova','olegovna','25-20-1992')
+client1.getFio()
+
+answer = input("\n Давайте поработаем?(Y/N)")
 action = "1 помыть полы"
 action2 = "2 помыть посуду"
 action3 = "3 подготовиться к работе"
