@@ -11,25 +11,32 @@ class Dog():
         
     def sit(self):
         """будет садиться по команде"""
-        print(self.name.title() + "собака села")
+        print(self.name.title() + " собака села")
         
     def jamp(self):
         """собака будет прыгать по команде"""
-        print(self.name.title() + "собака прыгнула")
+        print(self.name.title() + " собака прыгнула")
     
-    """def howyear(self):
-        print(self.age.title() + " возраст собаки с кличкой" + self.name.title()) почему это не работает??"""
+    def howyear(self):
+        print(str(self.age) + " - возраст собаки с кличкой " + self.name.title())
         
-my_dog = Dog('Topik', 4)
+     
+my_dog = Dog('tOpik', 4)
 my_dog2 = Dog('Nika',7)
 
-"""my_dog.howyear()"""
+print("_______команды_________")   
+
 my_dog.sit()
 my_dog2.jamp()
+
+print("_______данные о собаках_________") 
+my_dog.howyear()
+my_dog2.howyear()
+print()
         
 print("Доброе утро, Alina")
 print("не ленись!")
-print("двумя кнопками мыши назать на файл \"file.py\"!")
+print("двумя кнопками мыши нажать на файл \"file.py\"!")
 answer3 = input("А ты в курсе, что можно запускать питоновский файл напрямую и вводить туда значения? (Y/N)")
 if answer3 == 'Y':
     print("умничка")
