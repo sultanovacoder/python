@@ -72,9 +72,11 @@ class Client():
         print(years)
 
    
-client1 = Client('karina','sultanova','vasilevna',1993,7,16)
+client1 = Client('karina','sultanova','vasilevna',1993,3,16)
+client2 = Client('lenok','prokopova','artemovna',1965,7,16)
 client1.getFio()
 client1.getYears()
+client2.getYears()
 answer = input("\n Давайте поработаем?(Y/N)")
 action = "1 помыть полы"
 action2 = "2 помыть посуду"
