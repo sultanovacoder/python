@@ -1,4 +1,6 @@
 #классы ООП
+import datetime
+
 class Dog():
     """Модель собачки. Гааав!"""
     
@@ -47,18 +49,32 @@ print(name, ", добро пожаловать в мир пайтон")
     
 print("\nРегистрация клиента")
 class Client():
-    def __init__(self,name,soname,otchestvo,date):
+    def __init__(self,name,soname,otchestvo,year,month,day):
         self.name = name
         self.soname = soname
         self.otchestvo = otchestvo
-        self.date = date
+        self.year = year
+        self.month = month
+        self.day = day
     def getFio(self):
         """собираем фамилию имя отчество"""
         print(self.soname.title()+ " " + self.name.title() + " " + self.otchestvo.title())
+    def getYears(self):
+        dataToday = datetime.datetime.now() 
+        birthDay=datetime.datetime(self.year,self.month,self.day)
+        years=dataToday.year-birthDay.year
+        if dataToday.month<birthDay.month:
+            years=years-1
+        elif dataToday.month == birthDay.month:
+            if dataToday.day < birthDay.day:         
+                years=years-1
+                
+        print(years)
 
-client1 = Client('marina','sultanova','olegovna','25-20-1992')
+   
+client1 = Client('karina','sultanova','vasilevna',1993,7,16)
 client1.getFio()
-
+client1.getYears()
 answer = input("\n Давайте поработаем?(Y/N)")
 action = "1 помыть полы"
 action2 = "2 помыть посуду"
