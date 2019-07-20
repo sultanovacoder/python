@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# coding=UTF-8
 #классы ООП
 import datetime
 
@@ -21,8 +23,49 @@ class Dog():
     
     def howyear(self):
         print(str(self.age) + " - возраст собаки с кличкой " + self.name.title())
-        
-     
+
+class Client():
+    def __init__(self,name,soname,otchestvo,year,month,day):
+        self.name = name
+        self.soname = soname
+        self.otchestvo = otchestvo
+        self.year = year
+        self.month = month
+        self.day = day
+
+    def getFio(self):
+        """собираем фамилию имя отчество"""
+        print(self.soname.title()+ " " + self.name.title() + " " + self.otchestvo.title())
+    def getYears(self):
+        dataToday = datetime.datetime.now()
+        birthDay=datetime.datetime(self.year,self.month,self.day)
+        years=dataToday.year-birthDay.year
+        if dataToday.month<birthDay.month:
+            years=years-1
+        elif dataToday.month == birthDay.month:
+            if dataToday.day < birthDay.day:
+                years=years-1
+        print(years)
+
+    def getFioShort(self):
+        print((self.soname[0]+self.name[0]+self.otchestvo[0]).upper())
+
+class Car():
+    """класс по созданию автомобиля"""
+    def __init__(self,make,model,year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.od_reading = 0
+
+    def descriptionName(self):
+        """возвращаем описание автомобиля"""
+        desc = str(self.year) + ' ' + self.make + ' ' + self.model
+        return desc.title()
+    def read_probeg(self):
+        """выводим пробег авто"""
+        print("пробег этого авто " + str(self.od_reading) + " км")
+
 my_dog = Dog('tOpik', 4)
 my_dog2 = Dog('Nika',7)
 
@@ -40,43 +83,24 @@ name = 'Alina'
 print("Доброе утро, %s" % name)
 print("не ленись!")
 print("двумя кнопками мыши нажать на файл \"file.py\"!")
-answer3 = input("А ты в курсе, что можно запускать питоновский файл напрямую и вводить туда значения? (Y/N)")
-if answer3 == 'Y':
-    print(" умничка")
-else:
-    print("нихера не умничка%n")
 print(name, ", добро пожаловать в мир пайтон")
     
 print("\nРегистрация клиента")
-class Client():
-    def __init__(self,name,soname,otchestvo,year,month,day):
-        self.name = name
-        self.soname = soname
-        self.otchestvo = otchestvo
-        self.year = year
-        self.month = month
-        self.day = day
-    def getFio(self):
-        """собираем фамилию имя отчество"""
-        print(self.soname.title()+ " " + self.name.title() + " " + self.otchestvo.title())
-    def getYears(self):
-        dataToday = datetime.datetime.now() 
-        birthDay=datetime.datetime(self.year,self.month,self.day)
-        years=dataToday.year-birthDay.year
-        if dataToday.month<birthDay.month:
-            years=years-1
-        elif dataToday.month == birthDay.month:
-            if dataToday.day < birthDay.day:         
-                years=years-1
-                
-        print(years)
 
-   
+
+
+
 client1 = Client('karina','sultanova','vasilevna',1993,3,16)
 client2 = Client('lenok','prokopova','artemovna',1965,7,16)
 client1.getFio()
+client1.getFioShort()
 client1.getYears()
 client2.getYears()
+
+my_car = Car('audi','a8',2019)
+print(my_car.descriptionName())
+my_car.read_probeg()
+
 answer = input("\n Давайте поработаем?(Y/N)")
 action = "1 помыть полы"
 action2 = "2 помыть посуду"
