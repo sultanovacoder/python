@@ -56,7 +56,7 @@ class Car():
         self.make = make
         self.model = model
         self.year = year
-        self.od_reading = 0
+        self.odometr = 0
 
     def descriptionName(self):
         """возвращаем описание автомобиля"""
@@ -64,7 +64,16 @@ class Car():
         return desc.title()
     def read_probeg(self):
         """выводим пробег авто"""
-        print("пробег этого авто " + str(self.od_reading) + " км")
+        print("пробег этого авто " + str(self.odometr) + " км")
+    def update_odometr(self,km):
+        """устанавливаем значение на одометре"""
+        if km >= self.odometr:
+            self.odometr=km
+        else:
+            print("не читери сука")
+    def inkrement_odometr(self,km):
+        """увеличиваем показатель одометра на заданный пробег"""
+        self.odometr += km
 
 my_dog = Dog('tOpik', 4)
 my_dog2 = Dog('Nika',7)
@@ -98,7 +107,10 @@ client1.getYears()
 client2.getYears()
 
 my_car = Car('audi','a8',2019)
+#my_car.od_reading=30
 print(my_car.descriptionName())
+my_car.update_odometr(40)
+my_car.update_odometr(20)
 my_car.read_probeg()
 
 answer = input("\n Давайте поработаем?(Y/N)")
