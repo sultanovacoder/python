@@ -25,13 +25,14 @@ class Dog():
         print(str(self.age) + " - возраст собаки с кличкой " + self.name.title())
 
 class Client():
-    def __init__(self,name,soname,otchestvo,year,month,day):
+    def __init__(self,soname,name,otchestvo,year,month,day):
         self.name = name
         self.soname = soname
         self.otchestvo = otchestvo
         self.year = year
         self.month = month
         self.day = day
+        self.true = 1
 
     def getFio(self):
         """собираем фамилию имя отчество"""
@@ -49,6 +50,29 @@ class Client():
 
     def getFioShort(self):
         print((self.soname[0]+self.name[0]+self.otchestvo[0]).upper())
+
+    def setName(self,nick):
+        if self.checkData() == 1:
+            self.name = nick
+            self.true = 0
+
+    def setSoname(self,nick):
+        if self.checkData() == 1:
+            self.soname = nick
+            self.true = 0
+
+    def setOtchestvo(self,nick):
+        if self.checkData() == 1:
+            self.otchestvo = nick
+            self.true = 0
+
+    def checkData(self):
+        if self.true == 0:
+            print('Данные недавно менялись. Попробуйте позднее')
+            return 0
+        else:
+            return 1
+
 
 class Car():
     """класс по созданию автомобиля"""
@@ -99,9 +123,13 @@ print("\nРегистрация клиента")
 
 
 
-client1 = Client('karina','sultanova','vasilevna',1993,3,16)
-client2 = Client('lenok','prokopova','artemovna',1965,7,16)
+client1 = Client('sultanova','karina','vasilevna',1993,3,16)
+client2 = Client('prokopova','lenok','artemovna',1965,7,16)
 client1.getFio()
+client1.setSoname('Karpova')
+client1.getFio()
+client1.setName('Evgenia')
+
 client1.getFioShort()
 client1.getYears()
 client2.getYears()
