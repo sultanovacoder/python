@@ -7,10 +7,11 @@ class Dog():
     """Модель собачки. Гааав!"""
     
     def __init__(self,name,age):
+        print('Завели новую собаку')
         """инициализируем атрибуты имени и возраста"""
         self.name = name
         self.age = age
-        print(self.name.title() + " сказала gav gav gav")
+        print(self.getName() + " сказала gav gav gav")
         print("- на собаку посмотрели, как на дуру")
         
     def sit(self):
@@ -24,6 +25,9 @@ class Dog():
     def howyear(self):
         print(str(self.age) + " - возраст собаки с кличкой " + self.name.title())
 
+    def getName(self):
+        return self.name.title()
+
 class Client():
     def __init__(self,soname,name,otchestvo,year,month,day):
         self.name = name
@@ -33,10 +37,12 @@ class Client():
         self.month = month
         self.day = day
         self.true = 1
+        print('Занесение нового клиента в базу, - ' + self.getFio() + " " + str(self.day) +"." + str(self.month) + "."+ str(self.year) + " ("+self.getYears()+")")
 
     def getFio(self):
         """собираем фамилию имя отчество"""
-        print(self.soname.title()+ " " + self.name.title() + " " + self.otchestvo.title())
+        self.fio = self.soname.title()+ " " + self.name.title() + " " + self.otchestvo.title()
+        return self.fio
     def getYears(self):
         dataToday = datetime.datetime.now()
         birthDay=datetime.datetime(self.year,self.month,self.day)
@@ -46,15 +52,18 @@ class Client():
         elif dataToday.month == birthDay.month:
             if dataToday.day < birthDay.day:
                 years=years-1
-        print(years)
+        return str(years)
 
     def getFioShort(self):
         print((self.soname[0]+self.name[0]+self.otchestvo[0]).upper())
 
     def setName(self,nick):
         if self.checkData() == 1:
+            print("\nДанные пользователя изменились " + "\nбыло "+ self.getFio() + " ->")
             self.name = nick
             self.true = 0
+            print("стало " + self.getFio()+"\n")
+
 
     def setSoname(self,nick):
         if self.checkData() == 1:
@@ -68,15 +77,19 @@ class Client():
 
     def checkData(self):
         if self.true == 0:
-            print('Данные недавно менялись. Попробуйте позднее')
+            print(self.getFio() + ': Попытка изменения персональных данных, которые недавно менялись. Попробуйте позднее')
             return 0
         else:
             return 1
+
+    def kormitDog(self,dogName):
+        print("клиент " + self.getFio() + " кормит собаку " + dogName.getName())
 
 
 class Car():
     """класс по созданию автомобиля"""
     def __init__(self,make,model,year):
+        print('Приобрели новый авто')
         self.make = make
         self.model = model
         self.year = year
@@ -94,7 +107,7 @@ class Car():
         if km >= self.odometr:
             self.odometr=km
         else:
-            print("не читери сука")
+            print("Попытка открутить значение счетчика: не читери сука")
     def inkrement_odometr(self,km):
         """увеличиваем показатель одометра на заданный пробег"""
         self.odometr += km
@@ -123,16 +136,14 @@ print("\nРегистрация клиента")
 
 
 
-client1 = Client('sultanova','karina','vasilevna',1993,3,16)
-client2 = Client('prokopova','lenok','artemovna',1965,7,16)
-client1.getFio()
-client1.setSoname('Karpova')
-client1.getFio()
+client1 = Client('sultanova','karina','vasilevna',1993,3,14)
+client2 = Client('prokopova','lenok','artemovna',1965,7,15)
 client1.setName('Evgenia')
+client1.setSoname('Karpova')
 
 client1.getFioShort()
-client1.getYears()
-client2.getYears()
+print(client1.getYears())
+client1.kormitDog(my_dog)
 
 my_car = Car('audi','a8',2019)
 #my_car.od_reading=30
