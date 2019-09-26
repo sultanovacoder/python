@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # coding=UTF-8
 #классы ООП
-import datetime
+
 from Dog import Dog
 from Client import Client
 from Car import Car

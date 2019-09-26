@@ -1,3 +1,4 @@
+import datetime
 class Client():
     def __init__(self,soname,name,otchestvo,year,month,day):
         self.name = name
